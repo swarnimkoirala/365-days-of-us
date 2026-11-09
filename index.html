@@ -55,7 +55,6 @@ main{width:min(920px,92%);margin:auto}.section{padding:45px 0;scroll-margin-top:
 .final-heart{font-size:46px;color:#d77f9b;animation:pulse 1.5s ease-in-out infinite}
 @keyframes pulse{50%{transform:scale(1.2)}}
 footer{text-align:center;padding:40px 15px 65px;color:#ad7186;font-style:italic}
-.music{position:fixed;right:16px;bottom:16px;z-index:30;border:1px solid #e4b2c3;background:#fffaf0eF;color:#98536c;border-radius:50px;padding:11px 15px;box-shadow:0 5px 15px #a65e7720;cursor:pointer;font:12px Arial,sans-serif}
 @media(max-width:600px){.gallery{grid-template-columns:1fr 1fr}.reason-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section{padding:28px 0}.envelope{height:175px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
@@ -197,8 +196,8 @@ I love you Baby..... My world. ♡</div>
     <a class="pill" href="#top">Back to the beginning ↑</a>
   </div></section>
 </main>
-<button class="music" id="musicBtn" title="Toggle gentle background music">♫ Music: off</button>
-<audio id="music" loop></audio>
+
+
 <footer>Made with love, just for you. ♡</footer>
 <script>
 const heartLayer=document.getElementById('hearts');
@@ -224,12 +223,6 @@ openBtn.addEventListener('click',()=>{
 });
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-// Optional: add a royalty-free or personally owned audio file named music.mp3 beside index.html.
-const audio=document.getElementById('music'),musicBtn=document.getElementById('musicBtn');
-const musicSource=document.createElement('source');musicSource.src='music.mp3';musicSource.type='audio/mpeg';audio.appendChild(musicSource);
-musicBtn.addEventListener('click',async()=>{
-  if(audio.paused){try{await audio.play();musicBtn.textContent='♫ Music: on'}catch(e){musicBtn.textContent='♫ Add music.mp3';}}
-  else{audio.pause();musicBtn.textContent='♫ Music: off'}
-});
+
 </script>
 </body></html>
