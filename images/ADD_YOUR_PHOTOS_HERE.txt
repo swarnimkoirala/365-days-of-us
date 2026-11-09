@@ -1,0 +1,1 @@
+Place your photos/screenshots in this folder, then update the gallery src paths in index.html.

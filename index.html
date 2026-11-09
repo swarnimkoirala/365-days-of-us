@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffeaf1">
+<title>365 Days of Us ♡</title>
+<style>
+:root{--bg:#fff0f5;--pink:#f8cbd9;--rose:#d77f9b;--deep:#98536c;--ink:#754b5b;--paper:#fffafb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(135deg,#fff4f7,#fce1eb 55%,#fff0f5);color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+button{font:inherit}.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.heart{position:absolute;bottom:-50px;color:#e89ab1;opacity:0;animation:floatUp linear forwards;filter:drop-shadow(0 2px 5px #d78aa333)}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0) scale(.7);opacity:0}10%{opacity:.65}85%{opacity:.5}100%{transform:translateY(-115vh) rotate(35deg) scale(1.25);opacity:0}}
+.sparkle{position:fixed;pointer-events:none;color:#d77f9b;z-index:20;animation:twinkle .8s ease-out forwards}
+@keyframes twinkle{0%{opacity:0;transform:scale(.3)}30%{opacity:1}100%{opacity:0;transform:translateY(-25px) scale(1.5)}}
+main,.hero,footer{position:relative;z-index:1}.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:35px 18px}
+.hero-inner{max-width:700px}.tiny-label{font:11px Arial,sans-serif;letter-spacing:.23em;text-transform:uppercase;color:#bb7890}
+h1{font-size:clamp(48px,10vw,90px);font-weight:normal;line-height:.98;color:var(--deep);margin:18px 0}
+h1 em{font-weight:normal}.subtitle{font-size:clamp(16px,3vw,20px);line-height:1.6;margin:0 auto 20px}
+.envelope-btn{border:0;background:none;cursor:pointer;padding:14px;margin:10px auto;display:block}
+.envelope{width:min(330px,78vw);height:205px;position:relative;filter:drop-shadow(0 18px 22px #9f5a762b);transition:transform .3s}
+.envelope-btn:hover .envelope{transform:translateY(-7px) rotate(-1deg)}
+.env-back{position:absolute;inset:0;background:#e9a9bd;border-radius:10px}
+.env-front{position:absolute;inset:0;background:#f3c4d2;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:10px}
+.env-flap{position:absolute;inset:0;background:#f9dce5;clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;transition:transform .8s ease;z-index:3}
+.env-note{position:absolute;left:8%;width:84%;height:78%;top:12%;background:#fffafb;border-radius:6px;display:grid;place-items:center;color:var(--rose);font-size:20px;transition:transform .8s ease;z-index:2}
+.seal{position:absolute;z-index:4;left:calc(50% - 21px);top:47%;width:42px;height:42px;border-radius:50%;background:#c56d89;color:white;display:grid;place-items:center;font-size:22px;box-shadow:0 4px 9px #9e536a55;transition:.25s}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:1}.envelope.open .env-note{transform:translateY(-112px);z-index:4}.envelope.open .seal{opacity:0}
+.hint{font:11px Arial,sans-serif;letter-spacing:.16em;color:#ad7186;margin-top:5px}
+.pill{display:inline-block;border:1px solid #df9db2;border-radius:99px;padding:12px 23px;background:#fff9fb;color:var(--deep);text-decoration:none;cursor:pointer;transition:.2s}
+.pill:hover{background:#f8d5e0;transform:translateY(-2px)}
+.hidden{display:none!important}
+main{width:min(920px,92%);margin:auto}.section{padding:45px 0;scroll-margin-top:20px}
+.panel{background:#fffafbdc;border:1px solid #fff;border-radius:26px;padding:clamp(23px,5vw,48px);box-shadow:0 14px 40px #a95f7710;backdrop-filter:blur(8px)}
+.panel h2{text-align:center;font-weight:normal;color:var(--deep);font-size:clamp(31px,6vw,47px);margin:5px 0 12px}
+.kicker{text-align:center;font:10px Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#c17b94}
+.lead{text-align:center;line-height:1.7;max-width:550px;margin:0 auto 25px}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+.timeline{max-width:600px;margin:30px auto 0;border-left:1px solid #e8b8c8;padding-left:25px}
+.event{position:relative;margin:0 0 25px}.event:before{content:'♥';position:absolute;left:-33px;color:#d77f9b;background:#fffafc;font-size:13px}
+.event h3{font-weight:normal;color:var(--deep);font-size:19px;margin:0 0 6px}.event p{margin:0;line-height:1.65}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:25px}
+.polaroid{margin:0;background:#fff;padding:10px 10px 15px;box-shadow:0 7px 20px #a65e7718;transition:transform .3s}
+.polaroid:nth-child(odd){transform:rotate(-1.5deg)}.polaroid:nth-child(even){transform:rotate(1.5deg)}
+.polaroid:hover{transform:rotate(0) translateY(-7px) scale(1.02)}
+.polaroid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f7dce5}
+.polaroid figcaption{text-align:center;font-style:italic;font-size:14px;padding-top:10px}
+.reason-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:25px}
+.reason{border:1px solid #f2d5df;background:#fff0f5;border-radius:17px;padding:19px 12px;text-align:center;line-height:1.5;min-height:85px;display:grid;place-items:center}
+.big-letter{font-size:17px;line-height:1.9;max-width:650px;margin:20px auto;white-space:pre-line}
+.sign{text-align:right;font-style:italic;color:var(--deep);font-size:20px}
+.wishes{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:25px}
+.wish{border-radius:99px;padding:10px 15px;background:#fff0f5;border:1px solid #f1d2dd;font-size:14px}
+.final-heart{font-size:46px;color:#d77f9b;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.2)}}
+footer{text-align:center;padding:40px 15px 65px;color:#ad7186;font-style:italic}
+.music{position:fixed;right:16px;bottom:16px;z-index:30;border:1px solid #e4b2c3;background:#fffaf0eF;color:#98536c;border-radius:50px;padding:11px 15px;box-shadow:0 5px 15px #a65e7720;cursor:pointer;font:12px Arial,sans-serif}
+@media(max-width:600px){.gallery{grid-template-columns:1fr 1fr}.reason-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section{padding:28px 0}.envelope{height:175px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+.event-image {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 18px auto 0;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease;
+}
+
+.event-image:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px 10px 18px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+  transform: rotate(-1deg);
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background: #fff5f8;
+  border-radius: 6px;
+}
+
+.polaroid figcaption {
+  text-align: center;
+  padding-top: 12px;
+  font-size: 14px;
+  color: #98536c;
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .polaroid {
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="tiny-label">A little surprise for you mero Saanumaya</div>
+    <h1>365 Days<br><em>of Us ♡</em></h1>
+    <p class="subtitle">One year. A million little moments.<br>And my baby.</p>
+    <button class="envelope-btn" id="openLetter" aria-label="Open the letter">
+      <div class="envelope" id="envelope">
+        <div class="env-back"></div><div class="env-note">To my favourite person ♡</div>
+        <div class="env-front"></div><div class="env-flap"></div><div class="seal">♥</div>
+      </div>
+    </button>
+    <div class="hint" id="hint">TAP TO OPEN</div>
+    <p style="margin-top:20px"><a class="pill hidden" id="enter" href="#story">Hamro memories ♡</a></p>
+  </div>
+</header>
+
+<main id="content" class="hidden">
+  <section class="section reveal" id="story"><div class="panel">
+    <div class="kicker">A little rewind</div><h2>Our story</h2>
+    <p class="lead">Some favourite chapters from our first year.</p>
+    <div class="timeline">
+      <div class="event"><h3>♡ The beginning</h3><p>Thank you Aakash Dai for connecting us..... Thank you baby for accepting my follow request and thank you for responding to me on Oct 26</p> <img src="images/the-beginning.jpg" alt="The beginning of our story" class="event-image"></div>
+      <div class="event"><h3>♡ A favourite moment</h3><p>Nov 10, when you and i agreed to officially start dating</p></div>
+      <div class="event"><h3>♡ Us, today</h3><p>1 year has felt like an eternity and a second at the same time. I cannot imagine going a single day without talking to you. You are a part of my life and forever will be.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section reveal" id="memories"><div class="panel">
+    <div class="kicker">Little snapshots</div><h2>Our memories</h2>
+    <p class="lead">The moments I wish I could replay.</p>
+    <div class="gallery">
+      <!-- Replace image paths with your own files, e.g. images/photo1.jpg -->
+      <figure class="polaroid"><img src="images/us.png" alt="Imagined by Chat GPT"><figcaption>[A little caption]</figcaption></figure>
+      <figure class="polaroid"><img src="images/baby.jpg" alt="Mero Baby"><figcaption>[My favourite person]</figcaption></figure>
+      <figure class="polaroid"><img src="images/uss.jpg" alt="Hami"><figcaption>[Our memories]</figcaption></figure>
+      <figure class="polaroid"><img src="images/hami.jpg" alt="Hamro Tradition"><figcaption>[Every time before call ends]</figcaption></figure>
+    </div>
+  </div></section>
+
+  <section class="section reveal"><div class="panel">
+    <div class="kicker">Just because</div><h2>Why you're my baby</h2>
+    <p class="lead">A few little things I love about you.</p>
+    <div class="reason-grid">
+      <div class="reason">Your smile ♡</div><div class="reason">Your silly side ♡</div>
+      <div class="reason">Your kind heart ♡</div><div class="reason">Our long talks ♡</div>
+      <div class="reason">The way you care ♡</div><div class="reason">Simply being you ♡</div>
+    </div>
+  </div></section>
+
+  <section class="section reveal"><div class="panel">
+    <div class="kicker">A tiny note</div><h2>For you, my love</h2>
+    <div class="big-letter">Happy first anniversary, baby. ♡
+
+Thank you for making this year so special. Even being so far away, you make my days brighter.
+
+I wish I could be there to hug you today. Until then, here's the biggest virtual one.
+
+I love you Baby..... My world. ♡</div>
+    <div class="sign">Always yours ♡</div>
+  </div></section>
+
+  <section class="section reveal"><div class="panel" style="text-align:center">
+    <div class="kicker">Next chapter</div><h2>More memories to make</h2>
+    <p class="lead">More dates, more laughs, more hugs — and less distance.</p>
+    <div class="wishes"><span class="wish">Our next hug ♡</span><span class="wish">A proper date</span><span class="wish">New adventures</span><span class="wish">More us</span></div>
+    <p style="margin:30px 0 8px">I’d choose you in every lifetime.</p><div class="final-heart">♥</div>
+    <a class="pill" href="#top">Back to the beginning ↑</a>
+  </div></section>
+</main>
+<button class="music" id="musicBtn" title="Toggle gentle background music">♫ Music: off</button>
+<audio id="music" loop></audio>
+<footer>Made with love, just for you. ♡</footer>
+<script>
+const heartLayer=document.getElementById('hearts');
+function addHeart(){
+  const h=document.createElement('span');h.className='heart';h.textContent=['♡','♥','ღ','✧'][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+'%';h.style.fontSize=(12+Math.random()*23)+'px';
+  const duration=8+Math.random()*9;h.style.animationDuration=duration+'s';heartLayer.appendChild(h);
+  setTimeout(()=>h.remove(),duration*1000);
+}
+for(let i=0;i<18;i++)setTimeout(addHeart,i*260);
+setInterval(addHeart,650);
+document.addEventListener('pointerdown',e=>{
+  for(let i=0;i<3;i++){const s=document.createElement('span');s.className='sparkle';s.textContent='✦';
+    s.style.left=(e.clientX+(Math.random()*36-18))+'px';s.style.top=(e.clientY+(Math.random()*36-18))+'px';
+    document.body.appendChild(s);setTimeout(()=>s.remove(),850)}
+});
+const openBtn=document.getElementById('openLetter'),env=document.getElementById('envelope');
+let opened=false;
+openBtn.addEventListener('click',()=>{
+  if(opened)return;opened=true;env.classList.add('open');
+  document.getElementById('hint').textContent='A little love, just for you…';
+  setTimeout(()=>{document.getElementById('enter').classList.remove('hidden');document.getElementById('content').classList.remove('hidden');},850);
+});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// Optional: add a royalty-free or personally owned audio file named music.mp3 beside index.html.
+const audio=document.getElementById('music'),musicBtn=document.getElementById('musicBtn');
+const musicSource=document.createElement('source');musicSource.src='music.mp3';musicSource.type='audio/mpeg';audio.appendChild(musicSource);
+musicBtn.addEventListener('click',async()=>{
+  if(audio.paused){try{await audio.play();musicBtn.textContent='♫ Music: on'}catch(e){musicBtn.textContent='♫ Add music.mp3';}}
+  else{audio.pause();musicBtn.textContent='♫ Music: off'}
+});
+</script>
+</body></html>
